@@ -1,0 +1,34 @@
+# maximum vocab size
+src_vocab_size: 70000
+tgt_vocab_size: 70000
+save_data: EN_TH_data/run/example
+## Where the vocab(s) will be written
+src_vocab: EN_TH_data/run/example.vocab.src
+tgt_vocab: EN_TH_data/run/example.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+batch_size: 32
+valid_batch_size: 16
+train_steps: 1000000
+save_checkpoint_steps: 10000
+# Corpus opts:
+data:
+  corpus_1:
+    path_src: EN_TH_data/src_train.txt
+    path_tgt: EN_TH_data/tgt_train.txt
+  valid:
+    path_src: EN_TH_data/src_val.txt
+    path_tgt: EN_TH_data/tgt_val.txt
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+enc_layers: 6
+enc_rnn_size: 500
+encoder_type: rnn
+dec_layers: 6
+dec_rnn_size: 500
+decoder_type: rnn
+# Where to save the checkpoints
+save_model: EN_TH_data/run/model
+# save_config : EN_TH_data/saved_config_1.yaml
